@@ -1,0 +1,158 @@
+<div class="container body" ng-controller="orderListController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" dismiss="modal" ng-click="close()">x</button>
+                            <h3 class="modal-title">Edit Form</h3>
+                            <h3 class="text-success text-center">{{messageEdit}}</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form name="orderEditForm" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Shipping Date</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="shipDate"
+                                               ng-model="order.ord_shippingDate" placeholder="yyyy-mm-dd" required/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Shipping Time</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="shipTime"
+                                               ng-model="order.shippingTime" ng-maxlength="30" placeholder="Enter the time hh:mm a.m or p.m" required/>
+                                    </div>
+                                    <div ng-show="orderEditForm.shipTime.$dirty && orderEditForm.shipTime.$invalid" class="text-danger col-sm-4">
+                                        <span ng-show="orderEditForm.shipTime.$error.required">*Please enter the ship time*</span>
+                                        <span ng-show="orderEditForm.shipTime.$error.maxlength">*This must be less than 30 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Shipping Address</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="address"
+                                               ng-model="order.shippingAddress" ng-maxlength="200"  placeholder="Enter Address" required/>
+                                    </div>
+                                    <div ng-show="orderEditForm.address.$dirty && orderEditForm.address.$invalid" class="text-danger col-sm-4">
+                                        <span ng-show="orderEditForm.address.$error.required">*Please enter the address*</span>
+                                        <span ng-show="orderEditForm.address.$error.maxlength">*Address length must be less than 200 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Phone:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="phone"
+                                               placeholder="Enter Phone Number"
+                                               ng-pattern="/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/"
+                                               ng-model="admin.adm_phone" ng-maxlength="30" required/>
+                                    </div>
+                                    <div ng-show="orderEditForm.phone.$dirty && orderEditForm.phone.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="orderEditForm.phone.$error.pattern">*Please enter the numbers only*</span>
+                                        <span ng-show="orderEditForm.phone.$error.maxlength">*A phone number must has less than 30 numbers*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Status</label>
+                                    <fieldset id="isActive">
+                                        <input type="radio" ng-model="order.status" id="status0" name="activeRadio" class="form-control" ng-value="0" />Contacted
+                                        <input type="radio" ng-model="order.status" id="status1" name="activeRadio" class="form-control" ng-value="1" />Not Ship
+                                        <input type="radio" ng-model="order.status" id="status2" name="activeRadio" class="form-control" ng-value="2" />Fail
+                                        <input type="radio" ng-model="order.status" id="status3" name="activeRadio" class="form-control" ng-value="3" />Success
+                                    </fieldset>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-info" ng-click="update()">Edit</button>
+                            <button type="button" class="btn btn-default btn-info" dismiss="modal" ng-click="close()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="myModal2" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" ng-click="close2()" dismiss="modal">&times;</button>
+                            <h3 class="modal-title">List Order Detail</h3>
+                        </div>
+                        <div class="modal-body">
+                            <table class="display" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>Book Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                </tr>
+                                </thead>
+                                    <tr ng-repeat="x in orderDetailList">
+                                        <td>{{x.book.title}}</td>
+                                        <td>{{x.currentPrice}}</td>
+                                        <td>{{x.quantity}}</td>
+                                    </tr>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" ng-click="close2()" class="btn btn-default btn-info" dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <table id="orderList" class="display" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Order ID</th>
+                    <th>Purchase Date</th>
+                    <th>Ship Date</th>
+                    <th>Shipping Time</th>
+                    <th>Address</th>
+                    <th>Customer Phone</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>

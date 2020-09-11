@@ -1,0 +1,107 @@
+<div class="container body" ng-controller="addPublisherController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Add New Publisher</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-sm-10 col-md-10 ">
+                            <form name="pubAddForm" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Publisher:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="name" ng-model="name"
+                                               placeholder="Enter Publisher's Name"
+                                               ng-minlength="4" ng-maxlength="100"  required/>
+                                    </div>
+                                    <div ng-show="pubAddForm.name.$dirty && pubAddForm.name.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="pubAddForm.name.$error.required">*Please enter the publisher's name*</span>
+                                        <span ng-show="pubAddForm.name.$error.minlength">*Name must be at least 4 letters*</span>
+                                        <span ng-show="pubAddForm.name.$error.maxlength">*Name must has less than 100 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Address:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="address" ng-model="address"
+                                               ng-maxlength="150" placeholder="Enter Address" />
+                                    </div>
+                                    <div ng-show="pubAddForm.address.$dirty && pubAddForm.address.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="pubAddForm.address.$error.maxlength">*Address must has less than 150 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Email:</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" name="email" ng-model="email"
+                                               ng-maxlength="100" placeholder="Enter Email" required/>
+                                    </div>
+                                    <div ng-show="pubAddForm.email.$dirty && pubAddForm.email.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="pubAddForm.email.$error.required">*Please enter the email*</span>
+                                        <span ng-show="pubAddForm.email.$invalid">*Please enter a valid email address*</span>
+                                        <span ng-show="pubAddForm.email.$error.maxlength">*Email must has less than 100 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Phone:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="phone" ng-model="phone" 
+                                        	ng-pattern="/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/" ng-maxlength="30"
+                                          	placeholder="Enter Phone" required/>
+                                    </div>
+                                    <div ng-show="pubAddForm.phone.$dirty && pubAddForm.phone.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="pubAddForm.phone.$error.required">*Please enter the phone number*</span>
+                                        <span ng-show="pubAddForm.phone.$error.pattern">*Please enter the numbers only*</span>
+                                        <span ng-show="pubAddForm.phone.$error.maxlength">*Phone number must has less than 30 letter*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Fax:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="fax" ng-model="fax"
+                                               ng-maxlength="30" placeholder="Enter Fax"/>
+                                    </div>
+                                    <div ng-show="pubAddForm.phone.$dirty && pubAddForm.phone.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="pubAddForm.fax.$error.maxlength">*Fax number must has less than 30 letter*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn btn-default btn-info" ng-click="add()">Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>
+
+
+ 
+ 

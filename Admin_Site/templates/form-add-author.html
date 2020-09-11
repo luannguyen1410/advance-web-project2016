@@ -1,0 +1,96 @@
+<div class="container body" ng-controller="addAuthorController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Add New Author</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-sm-10 col-md-10 ">
+                            <form name="authorAddForm" class="form-horizontal" >
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">First Name:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="firstName" ng-model="firstName"
+                                               ng-maxlength="50" placeholder="Enter First Name" required/>
+                                    </div>
+                                    <div ng-show="authorAddForm.firstName.$dirty && authorAddForm.firstName.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="authorAddForm.firstName.$error.required">*Please enter the username*</span>
+                                        <span ng-show="authorAddForm.firstName.$error.maxlength">*First Name must has less than 50 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Last Name:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="lastName" ng-model="lastName"
+                                               ng-maxlength="50" placeholder="Enter Last Name" required/>
+                                    </div>
+                                    <div ng-show="authorAddForm.lastName.$dirty && authorAddForm.lastName.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="authorAddForm.lastName.$error.required">*Please enter your last name*</span>
+                                        <span ng-show="authorAddForm.lastName.$error.maxlength">*Last Name must has less than 50 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Phone:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" ng-maxlength="30" class="form-control" name="phone" ng-model="phone"
+                                               placeholder="Enter Phone"/>
+                                    </div>
+                                    <div ng-show="authorAddForm.phone.$dirty && authorAddForm.phone.$invalid" class="text-danger col-sm-4">
+                                        <span ng-show="authorAddForm.phone.$error.maxlength">*Phone must has less than 30 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Email:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" ng-maxlength="100"  name="email" ng-model="email"
+                                               placeholder="Enter Email"/>
+                                    </div>
+                                    <div ng-show="authorAddForm.email.$dirty && authorAddForm.email.$invalid" class="text-danger col-sm-4">
+                                        <span ng-show="authorAddForm.email.$error.maxlength">*Email must has less than 100 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Remark:</label>
+                                    <div class="col-sm-6">
+                                        <textarea name="remark" ng-model="remark"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn btn-default btn-info" ng-click="add()"
+                                                ng-disabled="!authorAddForm.$dirty || (authorAddForm.$dirty &&
+                                                			 authorAddForm.$invalid)">Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>
+
+
+ 
+ 

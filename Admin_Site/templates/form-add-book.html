@@ -1,0 +1,183 @@
+<div class="container body" ng-controller="addBookController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Add New Book</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-sm-10 col-md-10 ">
+                            <form name="bookAddForm" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Title:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="title" ng-model="title"
+                                               placeholder="Enter Book Title" required/>
+                                    </div>
+                                    <div ng-show="bookAddForm.title.$dirty && bookAddForm.title.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="bookAddForm.title.$error.required">*Please enter the book's title*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">ISBN:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="isbn" ng-model="isbn"
+                                               ng-maxlength="20" placeholder="Enter ISBN" required/>
+                                    </div>
+                                    <div ng-show="bookAddForm.isbn.$dirty && bookAddForm.isbn.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="bookAddForm.isbn.$error.required">*Please enter the book's ISBN*</span>
+                                        <span ng-show="bookAddForm.isbn.$error.maxlength">*ISBN must be less than 20 letters*</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Publishing Year:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="pub_year" ng-model="pub_year"
+                                               placeholder="yyyy-mm-dd" required/>
+                                    </div>
+                                    <div ng-show="bookAddForm.pub_year.$dirty && bookAddForm.pub_year.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="bookAddForm.pub_year.$error.required">*Please enter the imported day*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Author:</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" name="author" ng-model="author">
+                                            <option ng-repeat="x in authorList"  value="{{x.id}}">{{x.aut_firstName+" "+ x.aut_lastName }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Category:</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" ng-model="category" name="category">
+                                            <option ng-repeat="x in categoryList"  value="{{x.id}}">{{x.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Genre:</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" ng-model="genre"  name="genre">
+                                            <option ng-repeat="x in genreList" value="{{x.id}}">{{x.genreName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Language:</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" ng-model="language" name="language">
+                                            <option ng-repeat="x in languageList"  value="{{x.id}}">{{x.language}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Publisher:</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" ng-model="publisher" name="publisher" required>
+                                            <option ng-repeat="x in publisherList" value="{{x.id}}">{{x.publisherName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Description</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="description" ng-model="description"
+                                               ng-maxlength="500" placeholder="Description" />
+                                    </div>
+                                    <div ng-show="bookAddForm.description.$dirty && bookAddForm.description.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="bookAddForm.description.$error.maxlength">*Description must be less than 500 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Status:</label>
+                                    <div class="col-sm-6">
+                                        <span><input type="radio" id="radStatus1" class="form-control" name="radStatus" value="0" /> Old </span>
+                                        <span><input type="radio" id="radStatus2" class="form-control" name="radStatus" value="1"/> New </span>
+                                        <span><input type="radio" id="radStatus3" class="form-control" name="radStatus" value="2"/> Sale </span>
+                                        <span><input type="radio" id="radStatus4" class="form-control" name="radStatus" value="3"/> Best-seller </span>
+
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Retail Price:</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="retailPrice"
+                                               ng-model="retailPrice" value="0.0" ng-pattern="/^[0-9]+\.?[0-9]*$/"
+                                               required/>
+                                    </div>
+                                    <div ng-show="bookAddForm.retailPrice.$dirty && bookAddForm.retailPrice.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="bookAddForm.retailPrice.$error.required">*Please enter the retail price*</span>
+                                        <span ng-show="bookAddForm.retailPrice.$error.pattern">*Invalid price! Please enter again*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Sale Price:</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="salePrice" ng-model="salePrice"
+                                               value="0.0" ng-pattern="/^[0-9]+\.?[0-9]*$/"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Active:</label>
+                                    <fieldset name="isActive" class="col-sm-6">
+                                        <input type="radio" ng-model="isActive" id="yesActive" class="form-control" name="isActive" value="true" />Yes
+                                        <input type="radio" ng-model="isActive" id="noActive" class="form-control" name="isActive" value="false" /> No
+                                    </fieldset>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Image</label>
+                                    <div class="col-sm-6">
+                                        <input type="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                                               ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                                               ngf-resize="{width: 100, height: 100}"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn btn-default btn-info" ng-click="add()">Add</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>
+<!-- icheck script -->
+<script>
+    $(function () {
+        $('#radStatus1, #radStatus2, #radStatus3, #radStatus4, #yesActive, #noActive').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            //increaseArea: '20%' // optional
+        });
+    });
+</script>
+ 
+ 

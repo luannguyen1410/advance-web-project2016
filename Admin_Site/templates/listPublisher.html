@@ -1,0 +1,135 @@
+<div class="container body" ng-controller="publisherListController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+        	
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" ng-click="close()">&times;</button>
+                            <h4 class="modal-title">Edit Form</h4>
+                            <h3 class="text-success text-center">{{messageEdit}}</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form name="pubEditForm" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Publisher:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="name" data-ng-model="publisher.publisherName"
+                                               placeholder="Enter Publisher's Name" ng-pattern="/^[A-Za-z0-9]+$/"
+                                               ng-minlength="4" ng-maxlength="100"  required/>
+                                    </div>
+                                    <div ng-show="pubEditForm.name.$dirty && pubEditForm.name.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="pubEditForm.name.$error.required">*Please enter the publisher's name*</span>
+                                        <span ng-show="pubEditForm.name.$error.minlength">*Name must be at least 4 letters*</span>
+                                        <span ng-show="pubEditForm.name.$error.maxlength">*Name must has less than 100 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Address:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="address" data-ng-model="publisher.address"
+                                               ng-maxlength="150" placeholder="Enter Address" />
+                                    </div>
+                                    <div ng-show="pubEditForm.address.$dirty && pubEditForm.address.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="pubEditForm.address.$error.maxlength">*Address must has less than 150 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Email:</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" name="email" data-ng-model="publisher.email"
+                                               ng-maxlength="100" placeholder="Enter Email" required/>
+                                    </div>
+                                    <div ng-show="pubEditForm.email.$dirty && pubEditForm.email.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="pubEditForm.email.$error.required">*Please enter the email*</span>
+                                        <span ng-show="pubEditForm.email.$invalid">*Please enter a valid email address*</span>
+                                        <span ng-show="pubEditForm.email.$error.maxlength">*Email must has less than 100 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Phone:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="phone" data-ng-model="publisher.phone"
+                                               ng-pattern="/^([()\- x+]*\d[()\- x+]*){1,10}$/" ng-maxlength="30"
+                                               placeholder="Enter Phone " required/>
+                                    </div>
+                                    <div ng-show="pubEditForm.phone.$dirty && pubEditForm.phone.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="pubEditForm.phone.$error.required">*Please enter the phone number*</span>
+                                        <span ng-show="pubEditForm.phone.$error.pattern">*Please enter the numbers only*</span>
+                                        <span ng-show="pubEditForm.phone.$error.maxlength">*Phone number must has less than 30 letter*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Fax:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="fax" data-ng-model="publisher.fax"
+                                               ng-maxlength="30" placeholder="Enter Fax"/>
+                                    </div>
+                                    <div ng-show="pubEditForm.phone.$dirty && pubEditForm.phone.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="pubEditForm.phone.$error.maxlength">*Phone number must has less than 30 letter*</span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-info" ng-click="update()"
+                                    ng-disabled="!pubEditForm.$dirty || (pubEditForm.$dirty && pubAddForm.$invalid)">Edit
+                            </button>
+                            <button type="button" class="btn btn-default btn-info" data-dismiss="modal" ng-click="close()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Modal -->
+        
+        
+        	
+            <table id="publisherList" class="display" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Publisher Name</th>
+                    <th>Phone</th>
+                    <th>Fax</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--<tr ng-repeat="x in publisherList">-->
+                    <!--<td>{{x.publisherName}}</td>-->
+                    <!--<td>{{x.email}}</td>-->
+                    <!--<td>{{x.address}}</td>-->
+                    <!--<td>{{x.phone}}</td>-->
+                    <!--<td>{{x.fax}}</td>-->
+                    <!--<td><a href="#/edit/category"><span class="fa fa-edit text-info"></span></a></td>-->
+                    <!--<td><a href="#"><span class="fa fa-minus-circle text-danger"></span></a></td>-->
+                <!--</tr>-->
+                </tbody>
+            </table>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>

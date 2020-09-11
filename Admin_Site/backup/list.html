@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fanfiction </title>
+
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-book"></i> <span>Fanfiction</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home </a>
+                  <li><a><i class="fa fa-book"></i> Stories <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">                                         
+                      <li><a href="#">Anime</a></li>
+                      <li><a href="#">Manga</a></li>
+                      <li><a href="#">Books</a></li>
+                      <li><a href="#">Movies</a></li>
+                      <li><a href="#">Cartoons</a></li>
+                      <li><a href="#">Comics</a></li>
+                      <li><a href="#">Games</a></li>
+                    </ul>
+                  </li>
+                  
+                  <li><a><i class="fa fa-exchange"></i> Crossovers <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Anime</a></li>
+                      <li><a href="#">Manga</a></li>
+                      <li><a href="#">Books</a></li>
+                      <li><a href="#">Movies</a></li>
+                      <li><a href="#">Cartoons</a></li>
+                      <li><a href="#">Comics</a></li>
+                      <li><a href="#">Games</a></li>
+                    </ul>
+                  </li>
+                  
+                  
+                  <li><a><i class="fa fa-list"></i> Genre <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">Adventure</a></li>
+                      <li><a href="#">Comedy</a></li>
+                      <li><a href="#">Romance</a></li>
+                      <li><a href="#">Tragedy</a></li>
+                      <li><a href="#">Sci-fi</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>             	
+            </div>
+            <!-- /sidebar menu -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">John Doe
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;"> Profile</a></li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge bg-red pull-right">50%</span>
+                        <span>Settings</span>
+                      </a>
+                    </li>
+                    <li><a href="javascript:;">Help</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+       <div class="right_col" role="main">   
+    <div class="row">
+          <div class="clearfix"></div>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Table <small>Users' Info</small></h2>
+                <div class="nav navbar-right panel_toolbox">                      
+                    <button class="btn btn-success"><i class="fa fa-plus"></i> Add</button>                    
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content table-responsive">
+                <table id="table-info" class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Pen Name</th>
+                      <th>Email</th>                                       
+                      <th>Stories</th>
+                      <th>Chapters</th>
+                      <th>Words</th>
+                      <th>Edit</th>                          
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Winston</td>
+                      <td>Miller</td>
+                      <td>Aporo145</td>
+                      <td>wml@gmail.com</td>                                       
+                      <td>3</td>
+                      <td>34</td>
+                      <td>1458961</td>
+                      <td>
+                        <a href="#"><span class="fa fa-edit text-info"></span></a>
+                      </td>                          
+                      <td>
+                        <a href="#"><span class="fa fa-minus-circle text-danger"></span></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Cradler</td>
+                      <td>Saturday</td>
+                      <td>strol_er_f1990</td>
+                      <td>crasar@yahoo.com</td>                                       
+                      <td>2</td>
+                      <td>14</td>
+                      <td>145235</td>
+                      <td>
+                        <a href="#"><span class="fa fa-edit text-info"></span></a>
+                      </td>                          
+                      <td>
+                        <a href="#"><span class="fa fa-minus-circle text-danger"></span></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Erina</td>
+                      <td>Woodstone</td>
+                      <td>LittlePrince</td>
+                      <td>erine@gmail.com</td>                                       
+                      <td>1</td>
+                      <td>9</td>
+                      <td>24555</td>
+                      <td>
+                        <a href="#"><span class="fa fa-edit text-info"></span></a>
+                      </td>                          
+                      <td>
+                        <a href="#"><span class="fa fa-minus-circle text-danger"></span></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Murasagi</td>
+                      <td>Kirika</td>
+                      <td>wonderbf</td>
+                      <td>nihonsaiko@yahoo.com</td>                                       
+                      <td>2</td>
+                      <td>6</td>
+                      <td>7888</td>
+                      <td>
+                        <a href="#"><span class="fa fa-edit text-info"></span></a>
+                      </td>                          
+                      <td>
+                        <a href="#"><span class="fa fa-minus-circle text-danger"></span></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Manchester</td>
+                      <td>Donald</td>
+                      <td>MrStar</td>
+                      <td>mdester@gmail.com</td>                                       
+                      <td>6</td>
+                      <td>45</td>
+                      <td>2798854</td>
+                      <td>
+                        <a href="#"><span class="fa fa-edit text-info"></span></a>
+                      </td>                          
+                      <td>
+                        <a href="#"><span class="fa fa-minus-circle text-danger"></span></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>Milkary</td>
+                      <td>Oston</td>
+                      <td>DawnBLight</td>
+                      <td>ostmo@facebook.com</td>                                       
+                      <td>1</td>
+                      <td>19</td>
+                      <td>78926</td>
+                      <td>
+                        <a href="#"><span class="fa fa-edit text-info"></span></a>
+                      </td>                          
+                      <td>
+                        <a href="#"><span class="fa fa-minus-circle text-danger"></span></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>Kennedy</td>
+                      <td>Scort</td>
+                      <td>hikariBoss</td>
+                      <td>kensk@yahoo.com</td>                                       
+                      <td>5</td>
+                      <td>10</td>
+                      <td>36078</td>
+                      <td>
+                        <a href="#"><span class="fa fa-edit text-info"></span></a>
+                      </td>                          
+                      <td>
+                        <a href="#"><span class="fa fa-minus-circle text-danger"></span></a>
+                      </td>
+                    </tr>                        
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>           
+        </div>      
+    </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            &copy; 2016 Fanfiction &middot; <a href="#"> Rules</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="vendors/iCheck/icheck.min.js"></script>
+	<!-- Datatables -->
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+
+    <!-- bootstrap-daterangepicker -->
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/datepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.min.js"></script>
+    
+     <script>
+  	$(function(){
+			$("#table-info").DataTable();
+		});
+  </script>
+  </body>  
+</html>

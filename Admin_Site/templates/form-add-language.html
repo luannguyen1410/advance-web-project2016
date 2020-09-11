@@ -1,0 +1,57 @@
+<div class="container body" ng-controller="addLanguageController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Add New Language</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-sm-10 col-md-10 ">
+                            <form name="lanAddForm" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Language:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="language" ng-model="language"
+                                               placeholder="Enter Language" ng-pattern="/^[A-Za-z]+$/" required/>
+                                    </div>
+                                    <div ng-show="lanAddForm.language.$dirty && lanAddForm.language.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="lanAddForm.language.$error.required">*Please enter a language*</span>
+                                        <span ng-show="lanAddForm.language.$error.pattern">*A language must not contain numbers*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn btn-default btn-info" ng-click="add()"
+                                                ng-disabled="!lanAddForm.$dirty || (lanAddForm.$dirty && lanAddForm.$invalid)">Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>
+
+
+ 
+ 

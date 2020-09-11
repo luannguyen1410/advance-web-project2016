@@ -1,0 +1,51 @@
+<div class="container body" ng-controller="profileController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="container">
+                <h2>Account Setting</h2>
+                <hr/>
+                <div class="col-sm-8">
+                    <div class="col-sm-4"><strong>First Name:</strong></div>
+                    <div class="col-sm-4">{{admFirstName}}</div>
+
+                </div>
+                <div class="col-sm-8">
+                    <div class="col-sm-4"><strong>Last Name:</strong></div>
+                    <div class="col-sm-4">{{admLastName}}</div>
+
+                </div>
+                <div class="col-sm-8">
+                    <div class="col-sm-4"><strong>User Name:</strong></div>
+                    <div class="col-sm-4">{{admUserName}}</div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="col-sm-4"><strong>Email:</strong></div>
+                    <div class="col-sm-4">{{admEmail}}</div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="col-sm-4"><strong>Address:</strong></div>
+                    <div class="col-sm-4">{{admAddress}}</div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="col-sm-4"><strong>Phone:</strong></div>
+                    <div class="col-sm-4">{{admPhone}}</div>
+                </div>
+                <hr/>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>

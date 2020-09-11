@@ -1,0 +1,123 @@
+<div class="container body" ng-controller="commentListController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+        
+        	<!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" ng-click="close()">&times;</button>
+                            <h4 class="modal-title">Edit Form</h4>
+                            <h3 class="text-success text-center">{{messageEdit}}</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form name="comEditForm" class="form-horizontal" >
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Customer ID:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="cusId" data-ng-model="comment.com_id"
+                                             placeholder="" required/>
+                                    </div>
+                                    <div ng-show="comEditForm.cusId.$dirty && comEditForm.cusId.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="comEditForm.cusId.$error.required">*Please enter the customer ID*</span>                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Subject:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="subject" data-ng-model="comment.com_subject"
+                                             placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Message:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="message" data-ng-model="comment.com_message"
+                                             placeholder="" required/>
+                                    </div>
+                                    <div ng-show="comEditForm.message.$dirty && comEditForm.message.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="comEditForm.message.$error.required">*Please edit the message*</span>                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Created Date:</label>
+                                    <div class="col-sm-6">
+                                        <input type="date" class="form-control" name="date" data-ng-model="comment.com_date"
+                                             placeholder="yyyy-mm-dd" max="{{date | date:'yyyy-MM-dd'}}"
+                                             ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-((19[0-9]{2})|(20[0-1]{1}[0-4]{1}))$/" required/>
+                                    </div>
+                                    <div ng-show="comEditForm.cusId.$dirty && comEditForm.cusId.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="comEditForm.date.$error.required">*Please enter the date*
+                                        </span>
+                                        <span ng-show="comEditForm.date.$error.date">*Invalid date! Please input the date again*
+                                        </span>
+                                        <span ng-show="comEditForm.date.$error.max">*The date must be lower or equal the current date*
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Status:</label>
+                                    <fieldset id="status">
+                                        <input type="radio" data-ng-model="radioValue" name="activeRadio" class="form-control" value="1"/>Accepted
+                                        <input type="radio" data-ng-model="radioValue" name="activeRadio" class="form-control" value="0"/>Denied
+                                    </fieldset>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-info" ng-click="update()"
+                                    ng-disabled="!comEditForm.$dirty || (comEditForm.$dirty &&
+                                                			comEditForm.$invalid)">Edit
+                            </button>
+                            <button type="button" class="btn btn-default btn-info" data-dismiss="modal" ng-click="close()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Modal -->
+            
+        
+            <table id="commentList" class="display" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Created Date</th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--<tr ng-repeat="x in commentList">-->
+                    <!--<td>{{x.com_id}}</td>-->
+                    <!--<td>{{x.com_subject}}</td>-->
+                    <!--<td>{{x.com_message}}</td>-->
+                    <!--<td>{{x.com_date}}</td>-->
+                    <!--<td>{{x.com_status}}</td>--> 
+                    <!--<td><a href="#/edit/category"><span class="fa fa-edit text-info"></span></a></td>-->
+                    <!--<td><a href="#"><span class="fa fa-minus-circle text-danger"></span></a></td>-->
+                <!--</tr>-->
+                </tbody>
+            </table>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>

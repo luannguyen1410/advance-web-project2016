@@ -1,0 +1,112 @@
+<div class="container body" ng-controller="customerListController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" dismiss="modal" ng-click="close()" ng-click="close()">x</button>
+                            <h3 class="modal-title">Edit Form</h3>
+                            <h3 class="text-success text-center">{{messageEdit}}</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form name="customerEditForm" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Phone:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="phone"
+                                               placeholder="Enter Phone Number"
+                                               ng-pattern="/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/"
+                                               ng-model="customer.phone" ng-maxlength="30" required/>
+                                    </div>
+                                    <div ng-show="customerEditForm.phone.$dirty && customerEditForm.phone.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="customerEditForm.phone.$error.pattern">*Please enter the numbers only*</span>
+                                        <span ng-show="customerEditForm.phone.$error.maxlength">*A phone number must has less than 30 numbers*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Address:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="address" ng-model="customer.address" ng-maxlength="200" placeholder="Enter Address"/>
+                                    </div>
+                                    <div ng-show="customerEditForm.address.$dirty && customerEditForm.address.$invalid" class="text-danger col-sm-4">
+                                        <span ng-show="customerEditForm.address.$error.maxlength">*Address  must has less than 200 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Status:</label>
+                                    <fieldset name="status" class="col-sm-6" required>
+                                        <input type="radio" ng-model="customer.status" class="form-control" id="status0"  name="status" ng-value="0"/> New
+                                        <input type="radio" ng-model="customer.status" class="form-control" id="status1" name="status" ng-value="1"/> Normal
+                                        <input type="radio" ng-model="customer.status" class="form-control" id="status2" name="status" ng-value="2"/> Premium
+                                        <input type="radio" ng-model="customer.status" class="form-control" id="status3" name="status" ng-value="3"/> V.I.P
+                                    </fieldset>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Active:</label>
+                                    <fieldset id="isActive">
+                                        <input type="radio" ng-model="customer.isActive" id="yesActive" name="activeRadio" class="form-control" ng-value="true" />Yes
+                                        <input type="radio" ng-model="customer.isActive" id="noActive" name="activeRadio" class="form-control" ng-value="false"  /> No
+                                    </fieldset>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-info" ng-click="update()">Edit</button>
+                            <button type="button" class="btn btn-default btn-info" dismiss="modal" ng-click="close()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table id="customerList" class="display" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Gender</th>
+                    <th>Date Of Birth</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Active</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>

@@ -1,0 +1,167 @@
+<div class="container body" ng-controller="addAdminController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Add New Admin</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-sm-10 col-md-10">
+                            <form name="adminAddForm" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">User Name:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="username" ng-model="username"
+                                               placeholder="Enter User Name" ng-pattern="/^[A-Za-z0-9]+$/"
+                                               ng-minlength="4" ng-maxlength="32" required/>
+                                    </div>
+                                    <div ng-show="adminAddForm.username.$dirty && adminAddForm.username.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="adminAddForm.username.$error.required">*Please enter the user name*</span>
+                                        <span ng-show="adminAddForm.username.$error.minlength">*Username must be at least 4 letters*</span>
+                                        <span ng-show="adminAddForm.username.$error.maxlength">*Username must be less than 32 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Password:</label>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control" name="password" ng-model="password"
+                                               placeholder="Enter Password" ng-minlength="4" ng-maxlength="32" required/>
+                                    </div>
+                                    <div ng-show="adminAddForm.password.$dirty && adminAddForm.password.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="adminAddForm.password.$error.required">*Please enter the password*</span>
+                                        <span ng-show="adminAddForm.password.$error.minlength">*The password must be at least 4 letters above*</span>
+                                        <span ng-show="adminAddForm.password.$error.maxlength">*The password must be less than 32 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Confirm Password:</label>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control " name="cpassword"
+                                               ng-model="cpassword" placeholder="Enter Confirm Password"
+                                               password-match="password" required/>
+                                    </div>
+                                    <div ng-show="adminAddForm.cpassword.$dirty && adminAddForm.cpassword.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="adminAddForm.cpassword.$error.required">*Please enter the confirm password*</span>
+                                        <span ng-show="adminAddForm.cpassword.$error.unique">*Password is unmatched*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">First Name:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="firstname" ng-model="firstName"
+                                               ng-maxlength="50" placeholder="Enter First Name" ng-pattern="/^[a-zA-z]+$/" required/>
+                                    </div>
+                                    <div ng-show="adminAddForm.firstname.$dirty && adminAddForm.firstname.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="adminAddForm.firstname.$error.required">*Please enter your first name*</span>
+                                        <span ng-show="adminAddForm.firstname.$error.maxlength">*A name length must be less than 50 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Last Name:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="lastname" ng-model="lastName"
+                                               ng-maxlength="50" ng-pattern="/^[a-zA-z]+$/"  placeholder="Enter Last Name" required/>
+                                </div>
+                                    <div ng-show="adminAddForm.lastname.$dirty && adminAddForm.lastname.$invalid" class="text-danger col-sm-4">
+                                        <span ng-show="adminAddForm.lastname.$error.required">*Please enter your last name*</span>
+                                        <span ng-show="adminAddForm.lastname.$error.maxlength">*A name length must be less than 50 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Email:</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" name="email" ng-model="email"
+                                               ng-maxlength="100"  placeholder="Enter Email" required/>
+                                    </div>
+                                    <div ng-show="adminAddForm.email.$dirty && adminAddForm.email.$invalid" class="text-danger col-sm-4">
+                                        <span ng-show="adminAddForm.email.$error.required">*Please enter the email*</span>
+                                        <span ng-show="adminAddForm.email.$error.email">*Please enter a valid email address*</span>
+                                        <span ng-show="adminAddForm.email.$error.maxlength">*A email length must be less than 100 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Phone:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="phone" ng-model="phone"
+                                               placeholder="Enter Phone Number"
+                                               ng-pattern="/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/" ng-maxlength="30" required/>
+                                    </div>
+                                    <div ng-show="adminAddForm.phone.$dirty && adminAddForm.phone.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="adminAddForm.phone.$error.required">*Please enter your phone number*</span>
+                                        <span ng-show="adminAddForm.phone.$error.pattern">*Please enter the numbers only*</span>
+                                        <span ng-show="adminAddForm.phone.$error.maxlength">*A phone number must has less than 30 numbers*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Address:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="address" ng-model="address" ng-maxlength="200" placeholder="Enter Address"/>
+                                    </div>
+                                    <div ng-show="adminAddForm.address.$dirty && adminAddForm.address.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="adminAddForm.address.$error.maxlength">*Address  must has less than 200 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Active:</label>
+                                    <fieldset id="isActive">
+                                        <input type="radio" ng-model="isActive" id="yesRadio" name="activeRadio" class="form-control" value="true" />Yes
+                                        <input type="radio" ng-model="isActive" id="noRadio" name="activeRadio" class="form-control" value="false"/>No
+                                    </fieldset>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Image</label>
+                                    <div class="col-sm-6">
+                                        <input type="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                                               ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                                               ngf-resize="{width: 100, height: 100}"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="button" class="btn btn-default btn-info" ng-click="add()"
+                                        	ng-disabled="!adminAddForm.$dirty || (adminAddForm.$dirty &&
+                                                			 adminAddForm.$invalid)">Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- icheck script -->
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>

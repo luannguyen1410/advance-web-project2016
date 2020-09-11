@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+.username.ng-valid {
+    border-color: lightgreen;
+}
+
+.email.ng-valid {
+    background-color: lightgreen;
+}

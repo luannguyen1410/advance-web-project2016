@@ -1,0 +1,135 @@
+<div class="container body" ng-controller="adminListController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" dismiss="modal" ng-click="close()" ng-click="close()">x</button>
+                            <h3 class="modal-title">Edit Form</h3>
+                            <h3 class="text-success text-center">{{messageEdit}}</h3>
+                        </div>
+                        <div class="modal-body">
+                            <form name="adminEditForm" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">First Name:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="firstName"
+                                               ng-model="admin.adm_firstName" ng-maxlength="50" placeholder="Enter First Name" ng-pattern="/^[a-zA-z]+$/" required/>
+                                    </div>
+                                    <div ng-show="adminEditForm.firstname.$dirty && adminEditForm.firstname.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="adminEditForm.firstName.$error.required">*Please enter your first name*</span>
+                                        <span ng-show="adminEditForm.firstName.$error.maxlength">*A name length must be less than 50 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Last Name:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="lastName"
+                                               ng-model="admin.adm_lastName" ng-maxlength="50" placeholder="Enter Last Name" ng-pattern="/^[a-zA-z]+$/" required/>
+                                    </div>
+                                    <div ng-show="adminEditForm.lastName.$dirty && adminEditForm.lastName.$invalid" class="text-danger col-sm-4">
+                                        <span ng-show="adminEditForm.lastName.$error.required">*Please enter your last name*</span>
+                                        <span ng-show="adminEditForm.lastName.$error.maxlength">*A name length must be less than 50 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Email:</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" name="email"
+                                               ng-model="admin.adm_email" ng-maxlength="50"  placeholder="Enter Email" required/>
+                                    </div>
+                                    <div ng-show="adminEditForm.email.$dirty && adminAddForm.email.$invalid" class="text-danger col-sm-4">
+                                        <span ng-show="adminEditForm.email.$error.required">*Please enter the email*</span>
+                                        <span ng-show="adminEditForm.email.$error.email">*Please enter a valid email address*</span>
+                                        <span ng-show="adminEditForm.email.$error.maxlength">*A email length must be less than 100 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Phone:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="phone"
+                                               placeholder="Enter Phone Number"
+                                               ng-pattern="/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/"
+                                               ng-model="admin.adm_phone" ng-maxlength="30" required/>
+                                    </div>
+                                    <div ng-show="adminEditForm.phone.$dirty && adminAddForm.phone.$invalid"
+                                         class="text-danger col-sm-4">
+                                        <span ng-show="adminEditForm.phone.$error.pattern">*Please enter the numbers only*</span>
+                                        <span ng-show="adminEditForm.phone.$error.maxlength">*A phone number must has less than 30 numbers*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Address:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" name="address" ng-model="admin.adm_address" ng-maxlength="200" placeholder="Enter Address"/>
+                                    </div>
+                                    <div ng-show="adminEditForm.address.$dirty && adminAddForm.address.$invalid" class="text-danger col-sm-4">
+                                        <span ng-show="adminEditForm.address.$error.maxlength">*Address  must has less than 200 letters*</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Active:</label>
+                                    <fieldset id="isActive">
+                                        <input type="radio" ng-model="admin.adm_isActive" id="yesActive" name="activeRadio" class="form-control" ng-value="true" />Yes
+                                        <input type="radio" ng-model="admin.adm_isActive" id="noActive" name="activeRadio" class="form-control" ng-value="false"  /> No
+                                    </fieldset>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default btn-info" ng-click="update()">Edit</button>
+                            <button type="button" class="btn btn-default btn-info" dismiss="modal" ng-click="close()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table id="adminList" class="display" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Active</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>

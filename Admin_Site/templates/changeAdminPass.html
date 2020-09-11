@@ -1,0 +1,72 @@
+<div class="container body" ng-controller="changeAdminPassController">
+    <div class="main_container">
+        <!-- Navigation -->
+        <ng-include src="'templates/components/main_nav.html'"></ng-include>
+        <!-- /Navigation -->
+
+        <!-- top navigation -->
+        <ng-include src="'templates/components/top_nav.html'"></ng-include>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><i class="fa fa-lock" aria-hidden="true"></i><span> Change Password</span></h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-sm-9 col-md-9 ">
+                            <form name="changeAdminPassForm">
+                                <div class="form-group col-sm-8">
+                                    <label class="control-label col-sm-4">Current Password: </label>
+                                    <input type="password" name="currentPass" ng-model="currentPass" class="col-sm-5" required/>
+                                	<div ng-show="changeAdminPassForm.currentPass.$dirty && 
+                                    	changeAdminPassForm.currentPass.$invalid"		              
+                                         class="text-danger col-sm-7">
+                                        <span ng-show="changeAdminPassForm.currentPass.$error.required">
+                                        	*Please enter the password*
+                                        </span>                                        
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-8">
+                                    <label class="control-label col-sm-4">New Password: </label>
+                                    <input type="password" name="npwd" ng-model="npwd" class="col-sm-5" required/>
+                                	<div ng-show="changeAdminPassForm.npwd.$dirty && changeAdminPassForm.npwd.$invalid"
+                                         class="text-danger col-sm-7">
+                                        <span ng-show="changeAdminPassForm.npwd.$error.required">
+                                        	*Please enter the new password*
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-8">
+                                    <label class="control-label col-sm-4">Confirm Password: </label>
+                                    <input type="password" name="cpwd" ng-model="cpwd" class="col-sm-5" 
+                                    	password-match="npwd" required/>
+                                    <div ng-show="changeAdminPassForm.cpwd.$dirty && changeAdminPassForm.cpwd.$invalid"
+                                         class="text-danger col-sm-7">
+                                        <span ng-show="changeAdminPassForm.cpwd.$error.required">*Please confirm the password*</span><br/>                                        
+                                        <span ng-show="changeAdminPassForm.cpwd.$error.unique">*Password is unmatched*</span>
+                                    </div>
+                                </div>
+                            </form>
+                            <br/>
+                            <div class="col-sm-offset-2">
+                                <button type="submit" class="btn btn-default submit btn-success" ng-click="changePass()"
+                                        ng-disabled="!changeAdminPassForm.$dirty || (changeAdminPassForm.$dirty &&
+                                        				changeAdminPassForm.$invalid)">Change Password
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <ng-include src="'templates/components/footer.html'"></ng-include>
+        <!-- /footer content -->
+    </div>
+</div>
