@@ -1,0 +1,61 @@
+<div ng-controller="newReleaseController">
+
+    <!--header-->
+    <ng-include src="'templates/components/header.html'"></ng-include>
+    <!--/header-->
+
+    <!-- section -->
+    <section id="advertisement">
+        <div class="container">
+            <img src="images/shop/advertisement.jpg" alt=""/>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <!-- Left-sidebar or category books -->
+                <ng-include src="'templates/components/section_left-sidebar.html'"></ng-include>
+
+                <!-- contents -->
+                <div class="col-sm-9 padding-right">
+                    <div class="features_items"><!--features_items-->
+                        <h2 class="title text-center">New Releases</h2>
+
+                        <div class="col-sm-4" ng-repeat="x in newBookList">
+                            <div class="book-image-wrapper">
+                                <div class="single-books">
+                                    <div class="bookinfo text-center">
+                                        <a href="" ng-click="show(x.id)"><img src="http://localhost:8282/VietBook/images/{{x.image}}" alt=""/></a>
+                                        <p>{{x.title}}</p>
+                                        <h4>${{x.retailPrice}}</h4>
+                                        <div><a href="" class="btn btn-warning d10" ng-click="show(x.id)">Detail</a></div>
+                                        <div><a href="" class="btn btn-default add-to-cart"
+                                                ng-click="addToCart(x.id, x.title, x.retailPrice - x.salePrice, x.image)">
+                                            <i class="fa fa-shopping-cart"></i>Add to cart
+                                        </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <ul class="pagination">
+                            <li class="active"><a href="">1</a></li>
+                            <li><a href="">2</a></li>
+                            <li><a href="">3</a></li>
+                            <li><a href="">&raquo;</a></li>
+                        </ul>
+                    </div><!--features_items-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /section -->
+
+    <!--Footer-->
+    <ng-include src="'templates/components/footer.html'"></ng-include>
+    <!--/Footer-->
+
+</div> 

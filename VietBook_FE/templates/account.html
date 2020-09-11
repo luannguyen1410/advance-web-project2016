@@ -1,0 +1,64 @@
+<div ng-controller="accountController">
+
+    <!--header-->
+    <ng-include src="'templates/components/header.html'"></ng-include>
+    <!--/header-->
+
+    <!--Account Information-->
+    <section id="form">
+        <div class="container col-sm-12 col-ms-offset-3">
+            <div class="col-sm-3 col-sm-offset-2">
+                <img src="http://localhost:8282/VietBook/images/{{custImage}}" alt=""/>
+            </div>
+            <div class="col-sm-6 table-responsive">
+                <h2>Your Profile</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="col-sm-4">First Name:</th>
+                            <td class="col-sm-4">{{custFirstName}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="col-sm-4">Last Name:</th>
+                            <td class="col-sm-4" >{{custLastName}}</td>
+
+                        </tr>
+                        <tr>
+                            <th class="col-sm-4">User Name:</th>
+                            <td class="col-sm-4">{{custUsername}}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-sm-4">Email:</th>
+                            <td class="col-sm-4">{{custEmail}}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-sm-4">Phone:</th>
+                            <td class="col-sm-4">{{custPhone}}</td>
+                        </tr>
+                        <tr>
+                            <th class="col-sm-4">Address:</th>
+                            <td class="col-sm-4">{{custAddress}}</td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td><a href="#!/order/{{cust_id}}">View last orders</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!--/Account Information-->
+
+    <!--Footer-->
+    <ng-include src="'templates/components/footer.html'"></ng-include>
+    <!--/Footer-->
+
+</div> 

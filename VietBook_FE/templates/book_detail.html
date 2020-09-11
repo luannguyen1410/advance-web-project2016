@@ -1,0 +1,71 @@
+<div ng-controller="bookDetailController">
+
+    <!--header-->
+    <ng-include src="'templates/components/header.html'"></ng-include>
+    <!--/header-->
+
+    <!-- section -->
+    <section id="advertisement">
+        <div class="container">
+            <img src="images/shop/advertisement.jpg" alt=""/>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <!-- Left-sidebar or category books -->
+                <ng-include src="'templates/components/section_left-sidebar.html'"></ng-include>
+
+                <!-- contents -->
+                <div class="col-sm-9 padding-right">
+                    <!-- book detail-->
+
+                    <div class="book-details">
+                        <div class="col-sm-5">
+                            <div class="view-book">
+                                <img src="http://localhost:8282/VietBook/images/{{book.image}}" alt=""/>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <!--/book-information-->
+                            <div class="book-information">
+                                <img src="" class="newarrival" alt=""/>
+                                <h2>{{book.title}} (by {{book.author.aut_firstName}} {{book.author.aut_lastName}})</h2>
+                                <br />
+                                <h4 style="color:#F63">${{book.retailPrice - book.salePrice}}</h4>
+
+                                <div>{{book.description}}</div>
+                                <div class="row">
+                                        <a href="" class="btn btn-default add-to-cart"
+                                           ng-click="addToCart(book.id, book.title, book.retailPrice - book.salePrice, book.image)">
+                                            <i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                </div>
+                            </div>
+                            <!--/book-information-->
+                        </div>
+                    </div>
+
+                    <!--/book-details-->
+
+                    <!--category-tab-->
+                    <!--<ng-include src="'templates/components/category-tab.html'"></ng-include>-->
+                    <!--/category-tab-->
+
+                    <!--recommended_items-->
+                    <ng-include src="'templates/components/recommended_books.html'"></ng-include>
+                    <!--/recommended_items-->
+
+
+                    <!-- /book detail -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /section -->
+
+    <!--Footer-->
+    <ng-include src="'templates/components/footer.html'"></ng-include>
+    <!--/Footer-->
+
+</div> 

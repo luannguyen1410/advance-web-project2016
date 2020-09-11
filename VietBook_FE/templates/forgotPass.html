@@ -1,0 +1,52 @@
+<div ng-controller="forgotPassController">
+
+    <!--header-->
+    <ng-include src="'templates/components/header.html'"></ng-include>
+    <!--/header-->
+
+    <!--form-->
+    <section id="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-3">
+                    <!--recover password form-->
+                    <div class="signup-form form-group">
+                        <h2>Forgot your password?</h2>
+                        <div class="input-group">
+                                <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-envelope"></i>
+                                </span>
+                            <input class="text form-control" type="email" id="email"
+                                   placeholder="Please enter your email"
+                                   oninvalid="setCustomValidity('Please enter a valid email address!')"
+                                   onchange="try{setCustomValidity('')}catch(e){}" required=""/>
+                        </div>
+                        <div class="btn-group Button10">
+                            <button type="button" class="btn btn-default" onclick="">Send</button>
+                            <button type="button" class="btn btn-default" id="cancel" onclick="cancelEmail()">Cancel
+                            </button>
+                        </div>
+
+                    </div>
+                    <!--/sign up form-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/form-->
+
+    <!--Footer-->
+    <ng-include src="'templates/components/footer.html'"></ng-include>
+    <!--/Footer-->
+
+</div>
+
+<!-- -->
+<script>
+    function cancelEmail() {
+        location.href = "#/login";
+    }
+    ;
+
+</script>
+<!-- -->

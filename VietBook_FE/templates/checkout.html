@@ -1,0 +1,89 @@
+<div ng-controller="checkoutController">
+
+    <!--header-->
+    <ng-include src="'templates/components/header.html'"></ng-include>
+    <!--/header-->
+
+    <!--slider-->
+    <!--/slider-->
+
+    <!-- section -->
+    <section id="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <!--sign up form-->
+                    <div class="checkout-form">
+                        <h2 class="col-sm-offset-3">Checkout</h2>
+                        <h2 class="col-sm-offset-3 text-info">{{totalMoney}}</h2>
+                        <h2 class="text-success" ng-bind="message"></h2>
+                        <form class="form-horizontal" id="checkoutForm" name="checkoutForm">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Shipping Date:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="shippingDate" name="shippingDate"
+                                           ng-model="shippingDate" placeholder="yyyy/mm/dd" required/>
+                                </div>
+                                <div ng-show="checkoutForm.shippingDate.$dirty && checkoutForm.shippingDate.$invalid"
+                                     class="text-danger col-sm-4">
+                                    <span ng-show="checkoutForm.shippingDate.$error.required">*Please enter the shipping date*</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Shipping time</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="shippingTime" name="shippingTime"
+                                           ng-model="shippingTime" placeholder="Enter Shipping Time" required/>
+                                </div>
+                                <div ng-show="checkoutForm.shippingTime.$dirty && checkoutForm.shippingTime.$invalid"
+                                     class="text-danger col-sm-4">
+                                    <span ng-show="checkoutForm.shippingTime.$error.required">*Please enter the time you can take your products*</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Shipping Address</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="shippingAddress" name="shippingAddress"
+                                           ng-model="shippingAddress" placeholder="Enter Your Address" required/>
+                                </div>
+                                <div ng-show="checkoutForm.shippingAddress.$dirty && checkoutForm.shippingAddress.$invalid"
+                                     class="text-danger col-sm-4">
+                                    <span ng-show="checkoutForm.shippingAddress.$error.required">*Please enter your ddress*</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Phone:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="phone" name="phone" ng-model="phone"
+                                           ng-pattern="/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/"
+                                           placeholder="Enter Phone" required/>
+                                </div>
+                                <div ng-show="checkoutForm.phone.$dirty && checkoutForm.phone.$invalid"
+                                     class="text-danger col-sm-4">
+                                    <span ng-show="checkoutForm.phone.$error.required">*Please enter your phone number*</span>
+                                    <span ng-show="checkoutForm.phone.$error.pattern">*Please enter the numbers only*</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-10">
+                                    <button type="button" class="btn btn-default" ng-click="checkout()"
+                                            ng-disabled="!checkoutForm.$dirty || (checkoutForm.$dirty &&
+                                                		checkoutForm.$invalid)">Checkout</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--/sign up form-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#cart_items-->
+
+    <!-- /section -->
+
+    <!--Footer-->
+    <ng-include src="'templates/components/footer.html'"></ng-include>
+    <!--/Footer-->
+
+</div> 

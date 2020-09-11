@@ -1,0 +1,51 @@
+<div ng-controller="cartController">
+
+    <!--header-->
+    <ng-include src="'templates/components/header.html'"></ng-include>
+    <!--/header-->
+
+    <!-- section -->
+    <section id="cart_items">
+        <div class="container">
+            <div class="breadcrumbs">
+                <ol class="breadcrumb">
+                    <li><a href="#/">Home</a></li>
+                    <li class="active">Shopping Cart</li>
+                </ol>
+            </div>
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                    <tr class="cart_menu">
+                        <th class="image">Image</th>
+                        <th class="description">Book Name</th>
+                        <th class="price">Price</th>
+                        <th class="quantity">Quantity</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in shoppingCart">
+                            <td class="cart_product"><img src="http://localhost:8282/VietBook/images/{{x.image}}" width="75" height="100" alt=""/></td>
+                            <td class="cart_description">{{x.name}}</td>
+                            <td class="cart_price">${{x.price}}</td>
+                            <td class="cart_quantity">{{x.quantity}}</td>
+                            <td class="cart_delete">
+                            	<a href="" ng-click="remove(x.id)"><i class="glyphicon glyphicon-remove text-danger"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--<div>-->
+                <!--<h3 class="text-right text-info">Total amount: ${{totalMoney}}</h3>-->
+            <!--</div>-->
+        </div>
+    </section> <!--/#cart_items-->
+
+
+    <!--Footer-->
+    <ng-include src="'templates/components/footer.html'"></ng-include>
+    <!--/Footer-->
+
+</div> 

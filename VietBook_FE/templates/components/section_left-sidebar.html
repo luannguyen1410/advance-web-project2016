@@ -1,0 +1,42 @@
+<div class="col-sm-3">
+    <div class="left-sidebar">
+        <h2>Category</h2>
+        <!--category-books-->
+        <div class="panel-group category-books" id="accordian">
+            <div class="panel panel-default" ng-repeat=" x in genreList">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a href="#!/book/{{x.id}}">{{x.genreName}}</a></h4>
+                </div>
+            </div>
+        </div>
+        <!--/category-booksr-->
+
+        <!--brands_books-->
+        <div class="brands_books">
+            <h2>Best Sellers</h2>
+            <div class="brands-name">
+                <ul class="nav nav-pills nav-stacked">
+                    <li ng-repeat="x in bookBestSellerList"><a href="#!/book/detail/{{x.id}}">{{x.title}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--/brands_books-->
+
+        <!--price-range-->
+        <div class="brands_books clear">
+            <h2>Publishers</h2>
+            <div class="brands-name">
+                <ul class="nav nav-pills nav-stacked">
+                    <li ng-repeat="x in publisherList" >{{x.publisherName}}</li>
+                </ul>
+            </div>
+        </div>
+        <!--/price-range-->
+
+        <!--shipping-->
+        <div class="shipping text-center">
+            <img src="images/home/shipping.jpg" alt=""/>
+        </div>
+        <!--/shipping-->
+    </div>
+</div>

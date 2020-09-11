@@ -1,0 +1,154 @@
+<div ng-controller="shopController">
+
+    <!--header-->
+    <ng-include src="'templates/components/header.html'"></ng-include>
+    <!--/header-->
+
+    <!-- section -->
+    <section id="advertisement">
+        <div class="container">
+            <img src="images/shop/advertisement.jpg" alt=""/>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <!-- Left-sidebar or category books -->
+                <ng-include src="'templates/components/section_left-sidebar.html'"></ng-include>
+
+                <!-- contents -->
+                <div class="col-sm-9 padding-right">
+                    <div class="features_items">
+                        <h2 class="title text-center">Features Books</h2>
+
+                        <!-- EX1 -->
+
+                        <div class="col-sm-6 frame">
+                            <div class="book-image-wrapper">
+                                <div class="single-books">
+                                    <div class="bookinfo col-md-6">
+                                        <a href="#book/detail"><img src="images/home/adventure02.jpg" alt=""/></a>
+                                    </div>
+                                    <div class="col-md-6 text-center m15">
+                                        <h5>The new book</h5>
+                                        <h4>$89</h4>
+                                        <div><a href="#book/detail" class="btn btn-warning d10">Detail</a></div>
+                                        <div><a href="#cart" class="btn btn-default add-to-cart"><i
+                                                class="fa fa-shopping-cart"></i>Add to cart</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EX2 (PICKED)-->
+
+                        <div class="col-sm-6 frame">
+                            <div class="book-image-wrapper">
+                                <div class="single-books">
+                                    <div class="bookinfo col-md-6">
+                                        <a href="#shop"><img src="images/home/adventure02.jpg" alt=""/></a>
+                                    </div>
+                                    <div class="col-md-6 text-center m15">
+                                        <h5>The new book</h5>
+                                        <h4>$89 <span>$90</span></h4>
+                                        <div><a href="#book/detail" class="btn btn-warning d10">Detail</a></div>
+                                        <div><a href="#cart" class="btn btn-default add-to-cart"><i
+                                                class="fa fa-shopping-cart"></i>Add to cart</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EX3 -->
+
+                        <div class="col-sm-6 frame">
+                            <div class="book-image-wrapper">
+                                <div class="single-books">
+                                    <div class="bookinfo col-md-6">
+                                        <a href="#shop"><img src="images/home/adventure02.jpg" alt=""/></a>
+                                    </div>
+                                    <div class="col-md-6 text-center m15">
+                                        <h5>The new book</h5>
+                                        <h4>$89</h4>
+                                        <div><a href="#book/detail" class="btn btn-warning d10">Detail</a></div>
+                                        <div><a href="#cart" class="btn btn-default add-to-cart"><i
+                                                class="fa fa-shopping-cart"></i>Add to cart</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- / EXAMPLE -->
+
+
+                        <div class="col-sm-6 frame">
+                            <div class="book-image-wrapper">
+                                <div class="single-books">
+                                    <div class="bookinfo col-md-6">
+                                        <a href="#shop"><img src="images/home/adventure02.jpg" alt=""/></a>
+                                    </div>
+                                    <div class="col-md-6 text-center m15">
+                                        <h5>The new book</h5>
+                                        <h4>$89</h4>
+                                        <div><a href="#book/detail" class="btn btn-warning d10">Detail</a></div>
+                                        <div><a href="#cart" class="btn btn-default add-to-cart"><i
+                                                class="fa fa-shopping-cart"></i>Add to cart</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 frame">
+                            <div class="book-image-wrapper">
+                                <div class="single-books">
+                                    <div class="bookinfo col-md-6">
+                                        <a href="#shop"><img src="images/home/adventure02.jpg" alt=""/></a>
+                                    </div>
+                                    <div class="col-md-6 text-center m15">
+                                        <h5>The new book</h5>
+                                        <h4>$89</h4>
+                                        <div><a href="#book/detail" class="btn btn-warning d10">Detail</a></div>
+                                        <div><a href="#cart" class="btn btn-default add-to-cart"><i
+                                                class="fa fa-shopping-cart"></i>Add to cart</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 frame">
+                            <div class="book-image-wrapper">
+                                <div class="single-books">
+                                    <div class="bookinfo col-md-6">
+                                        <a href="#shop"><img src="images/home/adventure02.jpg" alt=""/></a>
+                                    </div>
+                                    <div class="col-md-6 text-center m15">
+                                        <h5>The new book</h5>
+                                        <h4>$89</h4>
+                                        <div><a href="#book/detail" class="btn btn-warning d10">Detail</a></div>
+                                        <div><a href="#cart" class="btn btn-default add-to-cart"><i
+                                                class="fa fa-shopping-cart"></i>Add to cart</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="pagination">
+                            <li class="active"><a href="">1</a></li>
+                            <li><a href="">2</a></li>
+                            <li><a href="">3</a></li>
+                            <li><a href="">&raquo;</a></li>
+                        </ul>
+                    </div>
+
+                    <!--features_items-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /section -->
+
+    <!--Footer-->
+    <ng-include src="'templates/components/footer.html'"></ng-include>
+    <!--/Footer-->
+
+</div> 

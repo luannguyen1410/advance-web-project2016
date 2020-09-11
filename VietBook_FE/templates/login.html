@@ -1,0 +1,65 @@
+<div ng-controller="loginController">
+
+    <!--header-->
+    <ng-include src="'templates/components/header.html'"></ng-include>
+    <!--/header-->
+
+    <!--form-->
+    <section id="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+
+                    <!--login form-->
+                    <div class="login-form">
+                        <h2 class="col-sm-offset-3">Login to your account</h2>                    
+                        <form class="form-horizontal" name="loginForm">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">User Name:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" name="username" ng-model="username"
+                                           placeholder="Enter User Name" required/>
+                                </div>
+                                 <div ng-show="loginForm.username.$dirty && loginForm.username.$invalid"
+                                         class="text-danger col-sm-4">
+                                	<span ng-show="loginForm.username.$error.required">*Please enter your username*</span>                               	</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Password:</label>
+                                <div class="col-sm-5">
+                                    <input type="password" class="form-control" name="pass" ng-model="password"
+                                           placeholder="Enter Password" required/>
+                                </div>
+                                 <div ng-show="loginForm.pass.$dirty && loginForm.pass.$invalid"
+                                         class="text-danger col-sm-4">
+                                	<span ng-show="loginForm.pass.$error.required">*Please enter the password*</span>                               	</div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-10">
+                                	<span class="text-danger" ng-bind="errorMessage"></span>
+                                    <div>
+                                        <button type="button" class="btn btn-default" ng-click="login()">Login</button>
+                                        <div class="mg10">
+                                         
+                                            <a href="#!/forgotPass">Forgot password?</a>&nbsp;Or&nbsp;
+                                            <a href="#!/sign/up">Signup</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--/login form-->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/form-->
+
+    <!--Footer-->
+    <ng-include src="'templates/components/footer.html'"></ng-include>
+    <!--/Footer-->
+
+</div> 

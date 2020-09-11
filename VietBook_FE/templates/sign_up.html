@@ -1,0 +1,144 @@
+<div ng-controller="signUpController">
+
+    <!--header-->
+    <ng-include src="'templates/components/header.html'"></ng-include>
+    <!--/header-->
+
+    <!--form-->
+    <section id="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <!--sign up form-->
+                    <div class="signup-form">
+                        <h2 class="text-info" ng-bind="mgs"></h2>
+                        <h2 class="col-sm-offset-3">Signup your account!</h2>
+                        <form class="form-horizontal" id="signUpForm" name="signupForm">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">First Name:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="firstName"  name="firstName" 
+                                    		ng-model="cusFirstName" placeholder="Enter First Name" required/>
+                                </div>
+                                <div ng-show="signupForm.firstName.$dirty && signupForm.firstName.$invalid"
+                                         class="text-danger col-sm-4">
+                                  	<span ng-show="signupForm.firstName.$error.required">*Please enter your first name*</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Last Name:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="lastName" name="lastname" 
+                                    		ng-model="cusLastName" placeholder="Enter Last Name" required/>
+                                </div>
+                                <div ng-show="signupForm.lastname.$dirty && signupForm.lastname.$invalid"
+                                         class="text-danger col-sm-4">
+                                  	<span ng-show="signupForm.lastname.$error.required">*Please enter your last name*</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">User Name:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="username" name="username" 
+                                    		ng-model="cusUserName" placeholder="Enter User Name" required/>
+                                </div>
+                                <div ng-show="signupForm.username.$dirty && signupForm.username.$invalid"
+                                         class="text-danger col-sm-4">
+                                  	<span ng-show="signupForm.username.$error.required">*Please enter your username*</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Password:</label>
+                                <div class="col-sm-5">
+                                    <input type="password" class="form-control" id="pwd" name="pwd" 
+                                    		ng-model="cusPass" placeholder="Enter Password" required/>
+                                </div>
+                                <div ng-show="signupForm.pwd.$dirty && signupForm.pwd.$invalid"
+                                         class="text-danger col-sm-4">
+                                  	<span ng-show="signupForm.pwd.$error.required">*Please enter the password*</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Gender:</label>
+                                <div class="rag">
+                                    <label class="control-label" for="male">Male
+                                        <input type="radio" class="radio-inline form-control" name="gender" ng-model="gender"
+                                        	 value="true">
+                                    </label>
+                                    <label class="control-label" for="female">Female
+                                        <input type="radio" class="radio-inline form-control" name="gender" ng-model="gender"
+                                        	 value="false">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Date of birth:</label>
+                                <div class="col-sm-5">
+                                    <input type="date" class="form-control" id="dob" name="dob" 
+                                    		ng-model="cusDob" placeholder="yyyy-mm-dd" required/>
+                                </div>
+                                <div ng-show="signupForm.dob.$dirty && signupForm.dob.$invalid"
+                                         class="text-danger col-sm-4">
+                                  	<span ng-show="signupForm.dob.$error.required">*Please enter the date*</span>
+                                	<span ng-show="signupForm.dob.$error.date">*Please enter in yyyy-mm-dd form*</span>
+                                    
+                                    <!--
+                                    	 pattern dd/mm/yyyy ng-pattern="/^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$/"
+                                    <span ng-show="signupForm.dob.$error.pattern">*Please enter in dd/mm/yyyy form*</span>
+                                    
+                                    -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Email:</label>
+                                <div class="col-sm-5">
+                                    <input type="email" class="form-control" id="email" name="email" 
+                                    		ng-model="cusEmail" placeholder="Enter Email" required/>
+                                </div>
+                                <div ng-show="signupForm.email.$dirty && signupForm.email.$invalid"
+                                         class="text-danger col-sm-4">
+                                  	<span ng-show="signupForm.email.$error.required">*Please enter your email address*</span>
+                                	<span ng-show="signupForm.email.$error.email">*This email is invalid*</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Phone:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="phone" name="phone" ng-model="cusPhone" 
+                                    		ng-pattern="/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/" 
+                                            placeholder="Enter Phone (11 numbers)" required/>
+                                </div>
+                                <div ng-show="signupForm.phone.$dirty && signupForm.phone.$invalid"
+                                         class="text-danger col-sm-4">
+                                  	<span ng-show="signupForm.phone.$error.required">*Please enter your phone number*</span>
+                                	<span ng-show="signupForm.phone.$error.pattern">*Please enter numbers only*</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Address:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" class="form-control" id="address" name="address" 
+                                    		ng-model="cusAddress" placeholder="Enter Address"/>
+                                </div>                                
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-10">
+                                    <button type="button" class="btn btn-default" ng-click="signup()" 
+                                    		ng-disabled="!signupForm.$dirty || (signupForm.$dirty &&
+                                                		signupForm.$invalid)">Sign up</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!--/sign up form-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/form-->
+
+    <!--Footer-->
+    <ng-include src="'templates/components/footer.html'"></ng-include>
+    <!--/Footer-->
+
+</div> 
